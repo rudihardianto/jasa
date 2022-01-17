@@ -50,17 +50,17 @@ class LandingController extends Controller
 
    public function detail($id)
    {
-      ;
+      return view('pages.landing.detail');
    }
 
    public function booking($id)
    {
-      ;
+      return view('pages.landing.booking');
    }
 
    public function detail_booking($id)
    {
-      ;
+      return view('pages.dashboard.order.detail');
    }
 
 }

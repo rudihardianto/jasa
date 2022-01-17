@@ -1,4 +1,4 @@
-<a href="details.php" class="block">
+<a href="{{ route('detail.landing', 1) }}" class="block">
    <div class="inline-block w-auto h-auto p-4 overflow-hidden bg-white md:p-5 rounded-2xl">
       <div class="flex items-center mb-6 space-x-2">
          <!--Author's profile photo-->
