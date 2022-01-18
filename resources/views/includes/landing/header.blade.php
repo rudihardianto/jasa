@@ -1,7 +1,7 @@
 <section class="w-full h-full px-8 py-8 transition-all duration-500 bg-white border-box linear lg:px-16 md:px-20">
    <div class="navbar-1-1" style="font-family: 'Poppins', sans-serif">
       <div class="flex flex-row flex-wrap items-center justify-between mx-auto ">
-         <a href="index.php" class="flex items-center text-3xl font-bold">
+         <a href="{{ route('index') }}" class="flex items-center text-3xl font-bold">
             SERV
          </a>
          <label for="menu-toggle" class="block cursor-pointer lg:hidden">
@@ -17,8 +17,10 @@
             id="menu">
             <nav
                class="items-center justify-between pt-8 space-x-0 space-y-6 text-base lg:space-x-12 lg:flex lg:pt-0 lg:space-y-0">
-               <a href="{{ route('index') }}" class="block font-medium nav-link active">Home</a>
-               <a href="{{ route('explore.landing') }}" class="block nav-link text-serv-text">Explore</a>
+               <a href="{{ route('index') }}"
+                  class="block {{ request()->is('/') ? 'font-medium nav-link active' : 'nav-link text-serv-text' }}">Home</a>
+               <a href="{{ route('explore.landing') }}"
+                  class="block {{ request()->is('explore') ? 'font-medium nav-link active' : 'nav-link text-serv-text' }}">Explore</a>
                <a href="#" class="block nav-link text-serv-text">How It Works</a>
                <a href="#" class="block nav-link text-serv-text">Stories</a>
                <a href="#" class="block nav-link text-serv-text">Tips</a>
