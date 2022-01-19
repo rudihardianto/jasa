@@ -25,7 +25,7 @@ Route::get('booking/{id}', [LandingController::class, 'booking'])->name('booking
 Route::get('detail/{id}', [LandingController::class, 'detail'])->name('detail.landing');
 Route::get('explore', [LandingController::class, 'explore'])->name('explore.landing');
 
-Route::group(['prefix', 'member', 'as' => 'member', 'middleware' => ['auth.sanctum', 'verified']], function () {
+Route::group(['prefix' => 'member', 'as' => 'member.', 'middleware' => ['auth:sanctum', 'verified']], function () {
    // dashboard
    Route::resource('dashboard', MemberController::class);
 
