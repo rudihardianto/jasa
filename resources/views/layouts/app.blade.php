@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html x-data="data()" lang="en">
 
 <head>
    @include('includes.dashboard.meta')
