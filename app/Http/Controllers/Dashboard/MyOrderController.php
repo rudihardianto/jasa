@@ -9,7 +9,7 @@ class MyOrderController extends Controller
 {
    public function index()
    {
-      //
+      return view('pages.dashboard.order.index');
    }
 
    public function create()
@@ -24,12 +24,12 @@ class MyOrderController extends Controller
 
    public function show($id)
    {
-      //
+      return view('pages.dashboard.order.detail');
    }
 
    public function edit($id)
    {
-      //
+      return view('pages.dashboard.order.edit');
    }
 
    public function update(Request $request, $id)
