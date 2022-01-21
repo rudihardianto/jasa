@@ -14,7 +14,7 @@ class ServiceController extends Controller
 
    public function create()
    {
-      //
+      return view('pages.dashboard.service.create');
    }
 
    public function store(Request $request)
@@ -29,7 +29,7 @@ class ServiceController extends Controller
 
    public function edit($id)
    {
-      //
+      return view('pages.dashboard.service.edit');
    }
 
    public function update(Request $request, $id)
