@@ -9,7 +9,7 @@ class RequestController extends Controller
 {
    public function index()
    {
-      //
+      return view('pages.dashboard.request.index');
    }
 
    public function create()
@@ -24,7 +24,7 @@ class RequestController extends Controller
 
    public function show($id)
    {
-      //
+      return view('pages.dashboard.request.detail');
    }
 
    public function edit($id)

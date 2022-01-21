@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add Service')
+@section('title', 'Edit Service')
 
 @section('content')
    <main class="h-full overflow-y-auto">
