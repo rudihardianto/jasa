@@ -6,25 +6,28 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateDetailUserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
+   /**
+    * Determine if the user is authorized to make this request.
+    *
+    * @return bool
+    */
+   public function authorize()
+   {
+      return true;
+   }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            //
-        ];
-    }
+   /**
+    * Get the validation rules that apply to the request.
+    *
+    * @return array
+    */
+   public function rules()
+   {
+      return [
+         'photo'          => 'nullable|file|min:3|max:1024',
+         'role'           => 'required|string|max:100',
+         'contact_number' => 'required|max:13|regex:/^[0-9\s\-\+(\)*]$/',
+         'biography'      => 'nullable|string|max:5000',
+      ];
+   }
 }
