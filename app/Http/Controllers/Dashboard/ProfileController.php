@@ -102,7 +102,7 @@ class ProfileController extends Controller
       } else {
          Storage::delete('storage/app/public/' . $path_photo['photo']);
       }
-      Alert::warning('Data berhasil di HAPUS');
+      Alert::success('Data berhasil di HAPUS');
 
       return back();
 
