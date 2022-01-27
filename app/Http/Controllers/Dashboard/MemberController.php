@@ -3,42 +3,30 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
+   public function __construct()
+   {
+      $this->middleware('auth');
+   }
+
    public function index()
    {
-      return view('pages.dashboard.index');
-   }
+      $orders   = Order::where('freelancer_id', Auth::user()->id)->get();
+      $progress = Order::where('freelancer_id', Auth::user()->id)
+         ->where('order_status_id', 2)
+         ->count()->get();
+      $completed = Order::where('freelancer_id', Auth::user()->id)
+         ->where('order_status_id', 1)
+         ->count()->get();
+      $freelancer = Order::where('buyer_id', Auth::user()->id)
+         ->where('order_status_id', 2)
+         ->distinct('freelancer_id')
+         ->count()->get();
 
-   public function create()
-   {
-      //
-   }
-
-   public function store(Request $request)
-   {
-      //
-   }
-
-   public function show($id)
-   {
-      //
-   }
-
-   public function edit($id)
-   {
-      //
-   }
-
-   public function update(Request $request, $id)
-   {
-      //
-   }
-
-   public function destroy($id)
-   {
-      //
+      return view('pages.dashboard.index', compact('orders', 'progress', 'completed', 'freelancer'));
    }
 }
