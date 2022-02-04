@@ -30,7 +30,7 @@ class MyOrderController extends Controller
    public function show(Order $order)
    {
       $service           = Service::where('id', $order['service_id'])->first();
-      $service           = ThumbnailService::where('service_id', $order['service_id'])->get();
+      $thumbnail         = ThumbnailService::where('service_id', $order['service_id'])->get();
       $advantage_service = AdvantageService::where('service_id', $order['service_id'])->get();
       $advantage_user    = AdvantageUser::where('service_id', $order['service_id'])->get();
       $tagline           = Tagline::where('service_id', $order['service_id'])->get();
@@ -57,7 +57,7 @@ class MyOrderController extends Controller
       $order->note = $data['note'];
       $order->save();
 
-      Alert::success('Data berhasil di UPDATE');
+      Alert::success('Order Berhasil');
 
       return redirect()->route('member.order.index');
    }
@@ -71,7 +71,7 @@ class MyOrderController extends Controller
 
       Alert::success('konfirmasi order diterima');
 
-      return redirect()->route('member.order.index');
+      return back();
    }
 
    public function rejected($id)
@@ -80,9 +80,9 @@ class MyOrderController extends Controller
       $order->order_status_id = 3;
       $order->save();
 
-      Alert::success('tolak order diterima');
+      Alert::success('tolak order berhasil');
 
-      return redirect()->route('member.order.index');
+      return back();
    }
 
 }

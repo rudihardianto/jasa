@@ -27,7 +27,7 @@ class UpdateOrderRequest extends FormRequest
          'buyer_id'        => 'nullable|integer',
          'freelancer_id'   => 'nullable|string',
          'service_id'      => 'nullable|integer',
-         'file'            => 'required|max:1024',
+         'file'            => 'nullable|max:1024',
          'note'            => 'required|string|max:10000',
          'expired'         => 'nullable|date',
          'order_status_id' => 'nullable|integer',

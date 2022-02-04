@@ -11,7 +11,7 @@ use App\Models\Service;
 use App\Models\Tagline;
 use App\Models\ThumbnailService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceController extends Controller
@@ -81,7 +81,7 @@ class ServiceController extends Controller
 
       Alert::success('Data berhasil di UPDATE');
 
-      return back();
+      return redirect()->route('member.service.index');
    }
 
    public function edit(Service $service)
@@ -102,7 +102,7 @@ class ServiceController extends Controller
       $service->update($data);
 
       // update to advantage service
-      foreach ($data['advantage-service'] as $key => $value) {
+      foreach ($data['advantage-services'] as $key => $value) {
          $advantage_service            = AdvantageService::find($key);
          $advantage_service->advantage = $value;
          $advantage_service->save();
@@ -111,7 +111,7 @@ class ServiceController extends Controller
       // add new advantage service
       if (isset($data['advantage_service'])) {
          foreach ($data['advantage-service'] as $key => $value) {
-            $advantage_service             = AdvantageService::find($key);
+            $advantage_service             = new AdvantageService;
             $advantage_service->service_id = $service->id;
             $advantage_service->advantage  = $value;
             $advantage_service->save();
@@ -119,7 +119,7 @@ class ServiceController extends Controller
       }
 
       // update to advantage user
-      foreach ($data['advantage-user'] as $key => $value) {
+      foreach ($data['advantage-users'] as $key => $value) {
          $advantage_user            = AdvantageUser::find($key);
          $advantage_user->advantage = $value;
          $advantage_user->save();
@@ -128,7 +128,7 @@ class ServiceController extends Controller
       // add new advantage user
       if (isset($data['advantage_user'])) {
          foreach ($data['advantage-user'] as $key => $value) {
-            $advantage_user             = AdvantageUser::find($key);
+            $advantage_user             = new AdvantageUser;
             $advantage_user->service_id = $service->id;
             $advantage_user->advantage  = $value;
             $advantage_user->save();
@@ -136,18 +136,18 @@ class ServiceController extends Controller
       }
 
       // update to tagline
-      foreach ($data['tagline'] as $key => $value) {
-         $tagline            = Tagline::find($key);
-         $tagline->advantage = $value;
+      foreach ($data['taglines'] as $key => $value) {
+         $tagline          = Tagline::find($key);
+         $tagline->tagline = $value;
          $tagline->save();
       }
 
       // add new tagline
       if (isset($data['tagline'])) {
          foreach ($data['tagline'] as $key => $value) {
-            $tagline             = Tagline::find($key);
+            $tagline             = new Tagline;
             $tagline->service_id = $service->id;
-            $tagline->advantage  = $value;
+            $tagline->tagline    = $value;
             $tagline->save();
          }
       }
@@ -169,18 +169,18 @@ class ServiceController extends Controller
             $thumbnail_service->save();
 
             // delete old photo thumbnail
-            $data = '/storage' . $get_photo['photo'];
-            if (Storage::files($data)) {
-               Storage::delete($data);
+            $data = 'storage/' . $get_photo['photo'];
+            if (File::exists($data)) {
+               File::delete($data);
             } else {
-               Storage::delete('storage/app/public', $get_photo['photo']);
+               File::delete('storage/app/public/' . $get_photo['photo']);
             }
          }
       }
 
       // add to thumbnail service
       if ($request->hasFile('thumbnail')) {
-         foreach ($request->file('thumbnail') as $value) {
+         foreach ($request->file('thumbnail') as $file) {
             $path = $file->store(
                'assets/service/thumbnail', 'public'
             );

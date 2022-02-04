@@ -9,7 +9,7 @@ use App\Models\DetailUser;
 use App\Models\ExperienceUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
@@ -38,46 +38,47 @@ class ProfileController extends Controller
       //   delete old file from storage
       if (isset($data_detail_user['photo'])) {
          $data = 'storage/' . $get_photo['photo'];
-         if (Storage::files($data)) {
-            Storage::delete($data);
+         if (File::exists($data)) {
+            File::delete($data);
          } else {
-            Storage::delete('storage/app/public/' . $get_photo['photo']);
+            File::delete('storage/app/public/' . $get_photo['photo']);
          }
+      }
 
-         //  create file to storage
-         if (isset($data_detail_user['photo'])) {
-            $data_detail_user['photo'] = $request_detail_user->file('photo')->store('assets/photo', 'public');
+      //  create file to storage
+      if (isset($data_detail_user['photo'])) {
+         $data_detail_user['photo'] = $request_detail_user->file('photo')->store('assets/photo', 'public');
+      }
+
+      //  save file to users
+      $user = User::find(Auth::user()->id);
+      $user->update($data_profile);
+
+      //  save file to detail users
+      $detail_user = DetailUser::find($user->detail_user->id);
+      $detail_user->update($data_detail_user);
+
+      //
+      //  proses save experience user
+      $experience_user_id = ExperienceUser::where('detail_user_id', $detail_user['id'])->first();
+      if (isset($experience_user_id)) {
+         foreach ($data_profile['experience'] as $key => $value) {
+            $experience_user                 = ExperienceUser::find($key);
+            $experience_user->detail_user_id = $detail_user['id'];
+            $experience_user->experience     = $value;
+            $experience_user->save();
          }
-
-         //  save file to users
-         $user = User::find(Auth::user()->id);
-         $user->update($data_profile);
-
-         //  save file to detail users
-         $detail_user = DetailUser::find($user->detail_user->id);
-         $detail_user->update($data_detail_user);
-
-         //
-         //  proses save experience user
-         $experience_user_id = ExperienceUser::where('detail_user_id', $detail_user['id'])->first();
-         if (isset($experience_user_id)) {
-            foreach ($data_profile['experience'] as $key => $value) {
-               $experience_user                 = ExperienceUser::find($key);
+      } else {
+         foreach ($data_profile['experience'] as $key => $value) {
+            if (isset($value)) {
+               $experience_user                 = new ExperienceUser;
                $experience_user->detail_user_id = $detail_user['id'];
                $experience_user->experience     = $value;
                $experience_user->save();
             }
-         } else {
-            foreach ($data_profile['experience'] as $key => $value) {
-               if (isset($value)) {
-                  $experience_user                 = new ExperienceUser;
-                  $experience_user->detail_user_id = $detail_user['id'];
-                  $experience_user->experience     = $value;
-                  $experience_user->save();
-               }
-            }
          }
       }
+
       Alert::success('Data berhasil di UPDATE');
 
       return back();
@@ -97,11 +98,12 @@ class ProfileController extends Controller
 
       //   delete
       $data = 'storage/' . $path_photo;
-      if (Storage::files($data)) {
-         Storage::delete($data);
+      if (File::exists($data)) {
+         File::delete($data);
       } else {
-         Storage::delete('storage/app/public/' . $path_photo['photo']);
+         File::delete('storage/app/public/' . $path_photo);
       }
+
       Alert::success('Data berhasil di HAPUS');
 
       return back();

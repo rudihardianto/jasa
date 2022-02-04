@@ -31,16 +31,16 @@ Route::group(['prefix' => 'member', 'as' => 'member.', 'middleware' => ['auth:sa
 
    // my order
    Route::resource('order', MyOrderController::class);
-   Route::get('accept/order/{id}', [LandingController::class, 'accepted'])->name('accepted.order');
-   Route::get('reject/order/{id}', [LandingController::class, 'rejected'])->name('rejected.order');
+   Route::get('accept/order/{id}', [MyOrderController::class, 'accepted'])->name('accepted.order');
+   Route::get('reject/order/{id}', [MyOrderController::class, 'rejected'])->name('rejected.order');
 
    // profile
    Route::resource('profile', ProfileController::class);
-   Route::get('delete_photo', [LandingController::class, 'delete'])->name('delete.photo.order');
+   Route::get('delete_photo', [ProfileController::class, 'delete'])->name('delete.photo.profile');
 
    // request
    Route::resource('request', RequestController::class);
-   Route::get('approved_request/{id}', [LandingController::class, 'approve'])->name('approve.request');
+   Route::get('approved_request/{id}', [RequestController::class, 'approve'])->name('approve.request');
 
    // service
    Route::resource('service', ServiceController::class);

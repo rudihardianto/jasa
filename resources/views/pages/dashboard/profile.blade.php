@@ -3,112 +3,198 @@
 @section('title', 'Profile')
 
 @section('content')
-   <main class="h-full overflow-y-auto">
-      <div class="container mx-auto">
-         <div class="grid w-full gap-5 px-10 mx-auto md:grid-cols-12">
-            <div class="col-span-12">
-               <h2 class="mt-8 mb-1 text-2xl font-semibold text-gray-700">
-                  Edit My Profile
-               </h2>
-               <p class="text-sm text-gray-400">
-                  Enter your data Correctly & Properly
-               </p>
-            </div>
-         </div>
+  <main class="h-full overflow-y-auto">
+    <div class="container mx-auto">
+      <div class="grid w-full gap-5 px-10 mx-auto md:grid-cols-12">
+        <div class="col-span-12">
+          <h2 class="mt-8 mb-1 text-2xl font-semibold text-gray-700">
+            Edit My Profile
+          </h2>
+          <p class="text-sm text-gray-400">
+            Enter your data Correctly & Properly
+          </p>
+        </div>
       </div>
+    </div>
 
-      <section class="container px-6 mx-auto mt-5">
-         <div class="grid gap-5 md:grid-cols-12">
-            <main class="col-span-12 p-4 md:pt-0">
-               <div class="px-2 py-2 mt-2 bg-white rounded-xl">
-                  <form action="#" method="POST">
-                     <div class="">
-                        <div class="px-4 py-5 sm:p-6">
-                           <div class="grid grid-cols-6 gap-6">
-                              <div class="col-span-6">
-                                 <div class="flex items-center mt-1">
-                                    <span class="inline-block w-16 h-16 overflow-hidden bg-gray-100 rounded-full">
-                                       <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                                          <path
-                                             d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                                       </svg>
-                                    </span>
-                                    <button type="button"
-                                       class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                       Choose File
-                                    </button>
-                                    <button type="button"
-                                       class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-red-700 bg-transparent rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                       Delete
-                                    </button>
-                                 </div>
-                              </div>
-                              <div class="md:col-span-6 lg:col-span-3">
-                                 <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Full
-                                    Name</label>
-                                 <input placeholder="Alex Jones" type="text" name="service-name" id="service-name"
-                                    autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                              </div>
-                              <div class="md:col-span-6 lg:col-span-3">
-                                 <label for="service-name"
-                                    class="block mb-3 font-medium text-gray-700 text-md">Role</label>
-                                 <input placeholder="Website Developer" type="text" name="service-name" id="service-name"
-                                    autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                              </div>
-                              <div class="md:col-span-6 lg:col-span-3">
-                                 <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Email
-                                    Address</label>
-                                 <input placeholder="Alex.jones@gmail.com" type="text" name="service-name"
-                                    id="service-name" autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                              </div>
-                              <div class="md:col-span-6 lg:col-span-3">
-                                 <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Contact
-                                    Number</label>
-                                 <input placeholder="087721205555" type="number" name="service-name" id="service-name"
-                                    autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                              </div>
-                              <div class="col-span-6">
-                                 <label for="service-name"
-                                    class="block mb-3 font-medium text-gray-700 text-md">Biografi</label>
-                                 <textarea placeholder="Enter your biography here.." type="text" name="service-name"
-                                    id="service-name" autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                    rows="4">I am a web developer and web designer. I have an Associate Degree in Software and Web Development, and I have much experience in programming languages, such as HTML5, CSS3, PHP, Javascript and PHP. I can use Bootstrap and WordPress. I will provide fast response and clear communication in several languages. Feel free to contact me, thank you!</textarea>
-                              </div>
-                              <div class="col-span-6">
-                                 <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">My
-                                    Experience</label>
-                                 <input placeholder="More than 9 years of experience" type="text" name="service-name"
-                                    id="service-name" autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                                 <input placeholder="Knowledge in the fields of interface design, marketing and etc"
-                                    type="text" name="service-name" id="service-name" autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                                 <input placeholder="Lead Developer at Sony Music for 8 Years" type="text"
-                                    name="service-name" id="service-name" autocomplete="service-name"
-                                    class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                              </div>
-                           </div>
-                        </div>
-                        <div class="px-4 py-3 text-right sm:px-6">
-                           <button type="submit"
-                              class="inline-flex justify-center px-4 py-2 mr-4 text-sm font-medium text-gray-700 bg-white border border-gray-600 rounded-lg shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
-                              Cancel
-                           </button>
-                           <button type="submit"
-                              class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-600 border border-transparent rounded-lg shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                              Save Changes
-                           </button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </main>
-         </div>
-      </section>
-   </main>
+    <section class="container px-6 mx-auto mt-5">
+      <div class="grid gap-5 md:grid-cols-12">
+        <main class="col-span-12 p-4 md:pt-0">
+          <div class="px-2 py-2 mt-2 bg-white rounded-xl">
+
+            <form action="{{ route('member.profile.update', [Auth::user()->id]) }}" method="POST"
+              enctype="multipart/form-data">
+              @method('PUT')
+              @csrf
+              <div class="">
+                <div class="px-4 py-5 sm:p-6">
+                  <div class="grid grid-cols-6 gap-6">
+                    <div class="col-span-6">
+                      <div class="flex items-center mt-1">
+
+                        @if (auth()->user()->detail_user()->first()->photo != null)
+                          <img src="{{ url(Storage::url(auth()->user()->detail_user()->first()->photo)) }}"
+                            alt="photo profile" class="w-16 h-16 rounded-full">
+                        @else
+                          <span class="inline-block w-16 h-16 overflow-hidden bg-gray-100 rounded-full">
+                            <svg class="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                              <path
+                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                          </span>
+                        @endif
+
+                        <label for="choose"
+                          class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                          Choose File
+                        </label>
+
+                        <input type="file" accept="image/*" id="choose" name="photo" hidden>
+
+                        <a href="{{ route('member.delete.photo.profile') }}" type="button"
+                          class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-red-700 bg-transparent rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                          onclick="return confirm('yakin hapus photo?')">
+                          Delete
+                        </a>
+                      </div>
+
+                      @if ($errors->has('photo'))
+                        <p class="mb-3 text-sm text-red-500">{{ $errors->first('photo') }}</p>
+                      @endif
+                    </div>
+
+                    <!-- START: Nama -->
+                    <div class="md:col-span-6 lg:col-span-3">
+                      <label for="name" class="block mb-3 font-medium text-gray-700 text-md">Full
+                        Name</label>
+                      <input placeholder="Your name" type="text" name="name" id="name" autocomplete="name"
+                        class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                        value="{{ $user->name ?? '' }}" required>
+
+                      @if ($errors->has('name'))
+                        <p class="mb-3 text-sm text-red-500">{{ $errors->first('name') }}</p>
+                      @endif
+                    </div>
+                    <!-- END: Nama -->
+
+                    <!-- START: Role -->
+                    <div class="md:col-span-6 lg:col-span-3">
+                      <label for="role" class="block mb-3 font-medium text-gray-700 text-md">Role</label>
+                      <input placeholder="Your role" type="text" name="role" id="role" autocomplete="role"
+                        class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                        value="{{ $user->detail_user->role ?? '' }}" required>
+
+                      @if ($errors->has('role'))
+                        <p class="mb-3 text-sm text-red-500">{{ $errors->first('role') }}</p>
+                      @endif
+                    </div>
+                    <!-- END: Role -->
+
+                    <!-- START: Email -->
+                    <div class="md:col-span-6 lg:col-span-3">
+                      <label for="email" class="block mb-3 font-medium text-gray-700 text-md">Email
+                        Address</label>
+                      <input placeholder="Email" type="email" name="email" id="email" autocomplete="email"
+                        class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                        value="{{ $user->email }}" required>
+
+                      @if ($errors->has('email'))
+                        <p class="mb-3 text-sm text-red-500">{{ $errors->first('email') }}</p>
+                      @endif
+                      <!-- END: Email -->
+                    </div>
+
+                    <!-- START: Contact Number -->
+                    <div class="md:col-span-6 lg:col-span-3">
+                      <label for="contact_number" class="block mb-3 font-medium text-gray-700 text-md">Contact
+                        Number</label>
+                      <input placeholder="Phone number" type="number" name="contact_number" id="contact_number"
+                        autocomplete="contact_number"
+                        class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                        value="{{ $user->detail_user->contact_number ?? '' }}" required>
+
+                      @if ($errors->has('contact_number'))
+                        <p class="mb-3 text-sm text-red-500">{{ $errors->first('contact_number') }}</p>
+                      @endif
+                    </div>
+                    <!-- END: Contact Number -->
+
+                    <!-- START: Biography -->
+                    <div class="col-span-6">
+                      <label for="biography" class="block mb-3 font-medium text-gray-700 text-md">Biografi</label>
+                      <textarea placeholder="Enter your biography here.." type="text" name="biography" id="biography"
+                        autocomplete="biography"
+                        class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                        rows="4">{{ $user->detail_user->biography ?? '' }}</textarea>
+
+                      @if ($errors->has('biography'))
+                        <p class="mb-3 text-sm text-red-500">{{ $errors->first('biography') }}</p>
+                      @endif
+                    </div>
+                    <!-- END: Biography -->
+
+                    <!-- START: Experience -->
+                    <div class="col-span-6">
+                      <label for="experience" class="block mb-3 font-medium text-gray-700 text-md">My
+                        Experience</label>
+
+                      @forelse ($experience_user as $key => $item)
+                        <input placeholder="More than 9 years of experience" type="text"
+                          name="{{ 'experience[' . $item->id . ']' }}" id="{{ 'experience[' . $item->id . ']' }}"
+                          autocomplete="{{ 'experience[' . $item->id . ']' }}"
+                          class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                          value="{{ $item->experience }}">
+
+                        @if ($errors->has('experience[' . $item->id . ']'))
+                          <p class="mb-3 text-sm text-red-500">{{ $errors->first('experience') }}</p>
+                        @endif
+                      @empty
+                        <input placeholder="More than 9 years of experience" type="text" name="experience[]"
+                          id="experience" autocomplete="experience"
+                          class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                        @if ($errors->has('experience'))
+                          <p class="mb-3 text-sm text-red-500">{{ $errors->first('experience') }}</p>
+                        @endif
+
+                        <input placeholder="More than 9 years of experience" type="text" name="experience[]"
+                          id="experience" autocomplete="experience"
+                          class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                        @if ($errors->has('experience'))
+                          <p class="mb-3 text-sm text-red-500">{{ $errors->first('experience') }}</p>
+                        @endif
+
+                        <input placeholder="More than 9 years of experience" type="text" name="experience[]"
+                          id="experience" autocomplete="experience"
+                          class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                        @if ($errors->has('experience'))
+                          <p class="mb-3 text-sm text-red-500">{{ $errors->first('experience') }}</p>
+                        @endif
+                      @endforelse
+                    </div>
+                    <!-- END: Experience -->
+                  </div>
+                </div>
+
+                <!-- START: Button -->
+                <div class="px-4 py-3 text-right sm:px-6">
+                  <a href="{{ route('member.dashboard.index') }}" type="button"
+                    class="inline-flex justify-center px-4 py-2 mr-4 text-sm font-medium text-gray-700 bg-white border border-gray-600 rounded-lg shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300"
+                    onclick="return confirm('cencel perubahan?')">
+                    Cancel
+                  </a>
+                  <button type="submit"
+                    class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-600 border border-transparent rounded-lg shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                    onclick="return confirm('ubah data!')">
+                    Save Changes
+                  </button>
+                </div>
+                <!-- END: Button -->
+              </div>
+            </form>
+
+          </div>
+        </main>
+      </div>
+    </section>
+  </main>
 @endsection
